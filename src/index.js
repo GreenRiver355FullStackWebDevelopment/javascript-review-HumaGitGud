@@ -1,3 +1,5 @@
+import calculateStarAverage from './logic.js'
+
 //Do not change //////////////////////////////////
 const reviews = [
   {
