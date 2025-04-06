@@ -1,4 +1,4 @@
-// import calculateStarAverage from './logic.js'
+import { calculateStarAverage } from './logic.js';
 
 //Do not change //////////////////////////////////
 const reviews = [
@@ -100,8 +100,19 @@ const recordReview = (event) => {
   
   // renderReviews upon submission
   renderReviews();
+  // update average star upon every new submission
+  averageStar();
   // reset form areas
   form.reset();
 }
 
 submitReview();
+
+const averageStar = () => {
+  // use imported function and insert text with 1 decimal place
+  const avg = calculateStarAverage(reviews);
+  const starRating = document.querySelector(".starRating");
+  starRating.innerText = avg.toFixed(1);
+}
+
+averageStar();
