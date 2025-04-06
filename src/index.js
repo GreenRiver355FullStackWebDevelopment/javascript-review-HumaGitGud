@@ -67,3 +67,38 @@ const renderReviews = () => {
 }
 
 renderReviews();
+
+const submitReview = () => {
+  // grab the form and add event listener with callback function
+  const form = document.querySelector("form");
+  form.addEventListener("submit", recordReview);
+}
+
+const recordReview = (event) => {
+  // prevent page from reloading
+  event.preventDefault();
+
+  // grab form input values
+  const username = document.querySelector("#username").value;
+  const image = document.querySelector("#image").value;
+  const star = Number(document.querySelector("#star").value);
+  const reviewComment = document.querySelector("#review").value;
+
+  // construct a new object with input values
+  const newReview = {
+    username: username,
+    image: image,
+    star: star,
+    review: reviewComment,
+  };
+
+  // push into array
+  reviews.push(newReview);
+  
+  // renderReviews upon submission
+  renderReviews();
+  // reset form areas
+  form.reset();
+}
+
+submitReview();
