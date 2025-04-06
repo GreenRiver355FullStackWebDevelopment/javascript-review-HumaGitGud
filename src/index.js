@@ -31,6 +31,9 @@ const renderReviews = () => {
   // grab .reviews container
   const reviewsContainer = document.querySelector(".reviews");
 
+  // clear the reviews container before re-rendering to avoid rendering duplicate reviews
+  reviewsContainer.innerHTML = "";
+
   // forEach review in reviews array
   reviews.forEach((review) => {
     // create div element with class name
